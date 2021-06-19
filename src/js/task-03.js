@@ -12,8 +12,27 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const paletteContainer = document.querySelector('#gallery');
+const cardsMarkup = creatImages(images);
 
-for (let el of images)
-  document
-    .querySelector('#gallery')
-    .insertAdjacentHTML('beforeEnd', `<li><img src="${el.url}" alt="${el.alt}"></li>`);
+paletteContainer.insertAdjacentHTML('beforeend', cardsMarkup);
+
+function creatImages(images) {
+  return images
+    .map(({ url, alt }) => {
+      return `<li>
+    <img
+      src="${url}"
+      alt="${alt}"
+    />
+  </a>
+</li>`;
+    })
+    .join('');
+}
+
+// =============== metod 2 ===================
+// for (let el of images)
+//   document
+//     .querySelector('#gallery')
+//     .insertAdjacentHTML('beforeEnd', `<li><img src="${el.url}" alt="${el.alt}"></li>`);
