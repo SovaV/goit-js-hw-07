@@ -1,13 +1,21 @@
 const ingredients = ['Картошка', 'Грибы', 'Чеснок', 'Помидоры', 'Зелень', 'Приправы'];
 
-const elements = ingredients.map(option => {
+for (let elem of ingredients) {
   const itemEl = document.createElement('li');
-  itemEl.textContent = option;
-  const listEl = document.querySelector('#ingredients');
-  listEl.appendChild(itemEl);
-  return itemEl;
-});
-console.log(elements);
+  itemEl.textContent = elem;
+  document.querySelector('#ingredients').append(itemEl);
+}
+
+//===============================================================
+
+// const elements = ingredients.map(option => {
+//   const itemEl = document.createElement('li');
+//   itemEl.textContent = option;
+//   const listEl = document.querySelector('#ingredients');
+//   listEl.appendChild(itemEl);
+//   return itemEl;
+// });
+// console.log(elements);
 
 // ============= old school ==================
 
