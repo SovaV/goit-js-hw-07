@@ -15,7 +15,8 @@ let control = document.querySelector('#controls input');
 let amount = '';
 
 function getAmount() {
-  let amount = +control.value;
+  let amount = control.value;
+  console.log(amount);
   createBoxes(amount);
 }
 
@@ -31,10 +32,13 @@ function createBoxes(amount) {
   boxes.appendChild(fragment);
 }
 function destroyBoxes() {
-  boxes.innerHTML = '';
+  boxes.innerHTML = ''; // Очистить
 }
 function random() {
-  return Math.random() * 256;
+  return Math.random() * 256; // рандомний цвет
+}
+function plusAmount() {
+  getAmount();
 }
 render.addEventListener('click', getAmount);
 destroy.addEventListener('click', destroyBoxes);
