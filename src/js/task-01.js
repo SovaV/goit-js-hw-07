@@ -1,10 +1,16 @@
 const allCategoriesEl = document.querySelectorAll('.item');
 console.log('В списке', allCategoriesEl.length, 'категорий'); // В списке 3 категорий
 
-for (let elem of allCategoriesEl) {
-  console.log('Категория:', elem.firstElementChild.textContent);
-  console.log('Количество элементов:', elem.lastElementChild.children.length);
-}
+allCategoriesEl.forEach(num => {
+  console.log('Категория:', num.firstElementChild.textContent);
+  console.log('Количество элементов:', num.lastElementChild.children.length);
+});
+
+// for (let elem of allCategoriesEl) {
+//   console.log('Категория:', elem.firstElementChild.textContent);
+//   console.log('Количество элементов:', elem.lastElementChild.children.length);
+// }
+
 // const titleEl = document.querySelectorAll('h2');
 // console.log('Категория:', titleEl[0].textContent); // Категория: Животные;
 

@@ -1,18 +1,19 @@
 const ingredients = ['Картошка', 'Грибы', 'Чеснок', 'Помидоры', 'Зелень', 'Приправы'];
 const addIngredients = document.querySelector('#ingredients');
+
+const newItem = elem => {
+  const itemEl = document.createElement('li');
+  itemEl.textContent = elem;
+  return itemEl;
+};
+const ingredientsArray = ingredients.map(ingredient => newItem(ingredient));
+addIngredients.append(...ingredientsArray);
+
 // for (let elem of ingredients) {
 //   const itemEl = document.createElement('li');
 //   itemEl.textContent = elem;
 //   addIngredients.append(itemEl);
 // }
-
-function wrapWithUl(children) {
-  const itemEl = document.createElement('li');
-  return [...children].reduce((addIngredients, child) => {
-    addIngredients.appendChild(child);
-    return addIngredients;
-  }, itemEl);
-}
 
 //===============================================================
 
