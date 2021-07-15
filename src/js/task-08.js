@@ -1,13 +1,3 @@
-{
-  /* <div id="controls">
-  <input type="number" min="0" max="100" step="1" />
-  <button type="button" data-action="render">Создать</button>
-  <button type="button" data-action="destroy">Очистить</button>
-</div>
-
-<div id="boxes"></div> */
-}
-
 let render = document.querySelector('[data-action="render"]');
 let destroy = document.querySelector('[data-action="destroy"]');
 let boxes = document.querySelector('#boxes');
@@ -19,26 +9,29 @@ function getAmount() {
   console.log(amount);
   createBoxes(amount);
 }
+let basicSize = 30;
 
 function createBoxes(amount) {
-  let basicSize = 30;
+  // let basicSize = 30;
+  boxes.style.cssText = `display: flex; `;
+  boxes.innerHTML = ''; // Рендер дива
   let fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
-    let size = basicSize + i * 10;
-    let div = document.createElement('div');
-    div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
+    // let size = basicSize + i * 10;
+    const div = document.createElement('div');
+    div.style.cssText = `margin: 1px; width: ${basicSize}px; height: ${basicSize}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
+    basicSize += 10;
     fragment.appendChild(div);
   }
   boxes.appendChild(fragment);
 }
 function destroyBoxes() {
+  basicSize = 30;
+
   boxes.innerHTML = ''; // Очистить
 }
 function random() {
   return Math.random() * 256; // рандомний цвет
-}
-function plusAmount() {
-  getAmount();
 }
 render.addEventListener('click', getAmount);
 destroy.addEventListener('click', destroyBoxes);
